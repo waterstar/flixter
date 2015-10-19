@@ -1,3 +1,12 @@
+body {
+	background:url('congruent_outline.png');
+	font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+
+.clr {
+  clear:both;
+}
+
 .navbar {
 	border-radius:0;
     font-family: "Helvetica Neue", Helvetica;
@@ -47,3 +56,39 @@ h1, h2, h3, h4, h5, h6, .navbar {
 	border-radius: 0;
 }
 
+.booyah-box {
+/*  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+*/  /* background: #fff; */
+  color:white;
+  background-color: rgba(0,0,0,0.3);
+  border: 1px solid #ccc;
+  border-color: black;
+}
+/* User sign in and sign forms. */
+.border-form-div {
+  max-width: 600px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  /*background-color: #fff;*/
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}

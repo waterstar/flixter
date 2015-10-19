@@ -54,4 +54,5 @@ Flixter::Application.routes.draw do
   #     resources :products
   #   end
   root 'static_pages#index'
+  devise_for :users
 end
