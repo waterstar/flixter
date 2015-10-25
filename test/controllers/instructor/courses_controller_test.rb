@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class Instructor::CoursesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "get instructor courses" do
+    course = FactoryGirl.create(:course)
+    user = FactoryGirl.create(:user)
+    sign_in user
+
+    get :show, :id=>course.id
+    assert_response :success
+  end
 end
