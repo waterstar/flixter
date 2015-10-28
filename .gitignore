@@ -18,3 +18,7 @@
 .ackrc
 tags
 vim.session
+public/uploads/
+
+# Ignore application configuration
+/config/application.yml
