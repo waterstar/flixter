@@ -42,13 +42,16 @@ gem 'simple_form'
 
 gem 'factory_girl_rails', "~> 4.0"
 
+gem 'aws-sdk', '~> 2'
+
 gem 'carrierwave'
+
+gem 'mini_magick', '~> 4.3.1'
+
+gem 'carrierwave-aws'
 
 gem "figaro", ">= 1.0.0"
 
-gem "fog", "~> 1.3.1"
-
-gem 'mini_magick', '~> 4.3.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
