@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  translates :title, :description
+
   mount_uploader :image, ImageUploader
 	belongs_to :user
   has_many :sections

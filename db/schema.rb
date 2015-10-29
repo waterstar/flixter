@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029092307) do
+ActiveRecord::Schema.define(version: 20151029124549) do
+
+  create_table "course_translations", force: true do |t|
+    t.integer  "course_id",   null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "course_translations", ["course_id"], name: "index_course_translations_on_course_id", using: :btree
+  add_index "course_translations", ["locale"], name: "index_course_translations_on_locale", using: :btree
 
   create_table "courses", force: true do |t|
     t.string   "title"

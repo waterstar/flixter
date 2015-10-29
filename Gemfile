@@ -52,6 +52,8 @@ gem 'carrierwave-aws'
 
 gem "figaro", ">= 1.0.0"
 
+gem 'globalize'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
