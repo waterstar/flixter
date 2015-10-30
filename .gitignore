@@ -22,3 +22,7 @@ public/uploads/
 
 # Ignore application configuration
 /config/application.yml
+
+.gemtags
+.tags
+ctags.rb
