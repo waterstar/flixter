@@ -16,7 +16,7 @@ class Instructor::SectionsControllerTest < ActionController::TestCase
     course = FactoryGirl.create(:course)
 
     post :create, :course_id => course.id, "section" => { :title => "FactoryGirl test 2"}
-    assert_response :unauthorized
+    assert_redirected_to user_session_path
   end
 
   test "only user who created the course can add sections to the course" do
