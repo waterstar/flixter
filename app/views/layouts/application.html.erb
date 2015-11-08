@@ -48,10 +48,16 @@
 </nav>
 
 <% if notice.present? %>
-  <p class="alert alert-info"><%= notice %></p>
+  <p class="alert alert-info">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <%= notice %>
+</p>
 <% end %>
 <% if alert.present? %>
-  <p class="alert alert-danger"><%= alert %></p>
+  <p class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <%= alert %>
+</p>
 <% end %>
 
 <%= yield %>
