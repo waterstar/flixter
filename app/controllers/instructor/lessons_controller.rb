@@ -5,7 +5,11 @@ class Instructor::LessonsController < ApplicationController
 
   def create
     @lesson = current_section.lessons.create(lesson_params)
-    redirect_to instructor_course_path(current_section.course)
+    if @lesson.valid?
+      redirect_to instructor_course_path(current_section.course)
+    else
+      redirect_to new_instructor_course_path, :status => :unprocessable_entity
+    end
   end
 
   def update
