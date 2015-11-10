@@ -13,7 +13,7 @@ body {
   /* Negative indent footer by its height */
   margin-top: 0;
   margin-right: auto;
-  margin-bottom: -($footer-height+10);
+  margin-bottom: -($footer-height+20);
   /* Pad bottom by footer height */
   padding: 0 0 $footer-height;
 }
