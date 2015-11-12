@@ -8,7 +8,9 @@ class Instructor::LessonsController < ApplicationController
     if @lesson.valid?
       redirect_to instructor_course_path(current_section.course)
     else
-      redirect_to new_instructor_course_path, :status => :unprocessable_entity
+      flash.alert = @lesson.errors.messages
+      redirect_to instructor_course_path(current_section.course)
+      # redirect_to new_instructor_course_path, :status => :unprocessable_entity
     end
   end
 
