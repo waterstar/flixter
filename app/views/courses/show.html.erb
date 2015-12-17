@@ -1,70 +1,82 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1" style="padding-bottom: 10px; margin-bottom: 10px;">
   <br />
-  <h1><%= @course.title %></h1>
-  <div style="padding:10px">
-    <%= image_tag @course.image, :class => 'img-responsive center-block'%>
+  <div class="row">
+  <div class="col-sm-9 col-xs-12">
+    <h1><%= @course.title %></h1>
   </div>
-
-  <div class="col-sm-4 col-xs-12" style="padding:10px">
-    <span class="label label-default">
-      <%= number_to_currency @course.cost %>
-    </span>
-
-    <% if current_user && current_user == @course.user %>
-      <br />
-      <br />
-      <%= link_to 'Administer', instructor_course_path(@course), :class => 'btn btn-danger btn-large' %>
-    <% end %>
-    <br />
-    <br />
+  <div class="col-sm-3 col-xs-12">
     <% if current_user && current_user.enrolled_in?(@course) %>
-      <h3 class="label label-info">You Are Enrolled! </h3>
+         <h4> <span class="label label-info">You Are Enrolled! </span></h4>
     <% else %>
       <% if @course.free? %>
-        <%= link_to 'Enroll', course_enrollments_path(@course), :class => 'btn btn-primary', :method => :post %>
-        <br />
-        <br />
+          <%= link_to 'Enroll Course', course_enrollments_path(@course), :class => 'btn btn-primary', :method => :post %>
+          <br />
+          <br />
       <% else %>
-        <%= form_tag course_enrollments_path(@course) do %>
-
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-description="<%= @course.title %> (<%= number_to_currency @course.cost %>)"
-                data-amount="<%= (@course.cost * 100).to_i %>"></script>
+          <%= form_tag course_enrollments_path(@course) do %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-panel-label="Enroll "
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-description="<%= @course.title %> (<%= number_to_currency @course.cost %>)"
+                      data-amount="<%= (@course.cost * 100).to_i %>"></script>
+              <script> 
+                $(function(){
+                  $(".stripe-button-el").html("<h5 style=\"margin:10px 20px 10px 20px\">Enroll Course</h5>")
+                });
+              </script>
+          <% end %>
       <% end %>
     <% end %>
-    <% end %>
-
+  </div>
   </div>
 
-  <div class="col-sm-8 col-xs-12" style="padding:10px">
-    <%= @course.description %>
+  <% if current_user && current_user == @course.user %>
+  <div class="row">
+  <div class="col-xs-10 col-xs-offset-1" style="padding:10px">
+    <%= link_to 'Administer', instructor_course_path(@course), :class => 'btn btn-danger btn-large pull-right' %>
+  </div>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-xs-12">
+        <div style="padding:10px">
+          <%= image_tag @course.image, :class => 'img-responsive center-block'%>
+        </div>
+    </div>
   </div>
 
-  <div class="col-xs-12">
-    <% @course.sections.rank(:row_order).each do |section| %>
-    <br />
-    <br />
-      <div class="section">
-        <h3>
-          <%= section.title %>
-        </h3>
-        <% section.lessons.rank(:row_order).each do |lesson| %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="lesson text-center">
-              <br />
-              <%= link_to lesson_path(lesson) do %>
-                <b><%= lesson.title %></b>
+  <div class="row">
+    <div class="col-xs-12" style="padding:0px 20px 0px 20px">
+      <%= @course.description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <% @course.sections.rank(:row_order).each do |section| %>
+      <br />
+      <br />
+        <div class="section">
+          <h3>
+            <%= section.title %>
+          </h3>
+          <% section.lessons.rank(:row_order).each do |lesson| %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="lesson text-center">
                 <br />
-                <%= lesson.subtitle %>
-              <% end %>
+                <%= link_to lesson_path(lesson) do %>
+                  <b><%= lesson.title %></b>
+                  <br />
+                  <%= lesson.subtitle %>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
-        <br class="clr" />
-      </div>
-    <% end %>
+          <% end %>
+          <br class="clr" />
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-    <br />
-    <br />
+<br class="clr"/>

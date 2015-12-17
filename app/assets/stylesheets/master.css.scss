@@ -1,25 +1,55 @@
+@font-face {font-family: "GB Pinyinok";
+     src: url("ZRDGWQ+PinYinok.woff");
+    /*
+     *src: url("http://db.onlinewebfonts.com/t/468eb26e72702c3f5481694ff8da5ba2.eot");
+     *src: url("http://db.onlinewebfonts.com/t/468eb26e72702c3f5481694ff8da5ba2.eot?#iefix") format("embedded-opentype"),
+     *[>* url("http://db.onlinewebfonts.com/t/468eb26e72702c3f5481694ff8da5ba2.woff") format("woff"), *<]
+     *[>* url("http://db.onlinewebfonts.com/t/468eb26e72702c3f5481694ff8da5ba2.ttf") format("truetype"), *<]
+     *url("http://db.onlinewebfonts.com/t/468eb26e72702c3f5481694ff8da5ba2.svg#GB Pinyinok") format("svg");
+     */
+}
+
 body {
-	background:url('congruent_outline.png');
-    height:100%;
-	font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    height: 100%;
+	background:url('concrete_seamless.png');
+    font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;
+	/*font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;*/
 }
 
 .clr {
-  clear:both;
+  clear: both;
+  /*
+   *box-sizing: border-box;
+   *display: inline;
+   *height: auto;
+   *line-height: 20px;
+   *width: auto;
+   */
+}
+
+.alert {
+  position: absolute;
+  width:100%;
+  z-index:99;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: grey;
+
 }
 
 .navbar {
 	border-radius:0;
-    font-family: "Helvetica Neue", Helvetica;
-    font-weight: 200;
+    /*font-family: "Helvetica Neue", Helvetica;*/
+    font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;
+    background: rgba(255,255,255,0.7);
     box-shadow: 0px 1px 3px #2a2a2a;
-  	background:url('dark_wood.png');
 }
 
-.navbar-inverse a.navbar-brand {
-	font-family: "Helvetica Neue", Helvetica;
-	font-weight: 100;
-	color: white;
+.navbar a.navbar-brand {
+	/*font-family: "Helvetica Neue", Helvetica;*/
+	///font-weight: 100;
+	color: red;
 }
 
 .hero{
@@ -28,21 +58,18 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position:absolute;
-  height:100%;
-  width:100%;
-  box-shadow: 0px 3px 8px #2a2a2a;
-  margin-bottom:-100px;
-  z-index:-99;
+  box-shadow: 0px 1px 3px #2a2a2a;
+  height:370px;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar {
+  /*font-family: "Helvetica Neue", Helvetica;*/
   margin:0;
 }
 
 .frosty {
-	background-color: rgba(0,0,0,0.5);
-	color:white;
+    background-color: rgba(255,255,255,0.3);
+	color: black;
 }
 
 .frosty h1 {
@@ -62,15 +89,19 @@ h1, h2, h3, h4, h5, h6, .navbar {
 }
 
 .booyah-box {
-/*  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  box-shadow: 1px 1px 2px 0 #d0d0d0;
-*/  background: #fff;
+  /*
+   *-moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+   *-webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+   *box-shadow: 1px 1px 2px 0 #d0d0d0;
+   */
+  background: #fff;
   color:white;
   background-color: rgba(0,0,0,0.5);
   border: 1px solid #ccc;
   border-color: black;
-  margin-top:100px;
+  margin-top:10px;
+  padding-top:20px;
+  padding-bottom:20px;
 }
 /* User sign in and sign forms. */
 .border-form-div {
@@ -168,3 +199,80 @@ ul .header .glyphicon {
 .lessons li p {
   margin:0;
 }
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.imgCircle {
+    border-radius: 50%;
+    width: 83px;
+    height: 83px;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid green;
+    color: #666;
+}
+
+.courseBox {
+  border:1px solid grey; 
+  margin-top:-40px; 
+  padding:10px; 
+  background-color:white;
+}
+
+/** Lesson 1 **/
+
+.flip {
+  -webkit-perspective: 800;
+  /* width: '120px'; */
+  height: auto;
+  position: relative;
+  margin: 50px auto;
+}
+.flip .card.flipped {
+  -webkit-transform: rotatey(-180deg);
+}
+.flip .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+}
+.flip .card .face {
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  -webkit-backface-visibility: hidden ;
+  z-index: 2;
+  font-family: Georgia;
+  font-size: 3em;
+  text-align: center;
+  line-height: 200px;
+}
+.flip .card .front {
+  position: absolute;
+  z-index: 1;
+  background: white;
+  color: white;
+  cursor: pointer;
+}
+.flip .card .back {
+  -webkit-transform: rotatey(-180deg);
+  background: white;
+  color: white;
+  cursor: pointer;
+}
+.pinyin-font {
+  font-family: "GB Pinyinok";
+  color: black;
+  line-height:0.8;
+  font-size:3em;
+}
+h1.lesson-header {
+  color: green;
+}
+
+

@@ -1,0 +1,201 @@
+<div class="col-sm-9">
+  <div class="row" id="lesson1row" style="margin-top:10px;">
+
+  <div class="col-xs-9">
+  <h1 class="lesson-header">Lesson 1 : 元音字母</h1>
+  </div>
+  <div class="col-xs-3">
+  <a class="btn btn-success pull-right" id='nextlesson' href="#">Next Lesson >></a>
+  </div>
+  <br class="clr" />
+
+      <div class="flip col-xs-3"> 
+        <div class="card"> 
+          <div class="face front"> 
+          <h1 class="pinyin-font">a</h1>
+          </div> 
+          <div class="face back"> 
+            <%= image_tag 'pinyin-a-pic.png', :class => "img-responsive"%>
+          </div> 
+        </div>
+      </div> 
+      <div class="flip col-xs-3"> 
+        <div class="card"> 
+          <div class="face front"> 
+          <h1 class="pinyin-font">o</h1>
+          </div> 
+          <div class="face back"> 
+            <%= image_tag 'pinyin-o-pic.png', :class => "img-responsive"%>
+          </div> 
+        </div>
+      </div> 
+      <div class="flip col-xs-3"> 
+        <div class="card"> 
+          <div class="face front"> 
+            <h1 class="pinyin-font">e</h1>
+          </div> 
+          <div class="face back"> 
+            <%= image_tag 'pinyin-e-pic.png', :class => "img-responsive"%>
+          </div> 
+        </div>
+      </div> 
+      <div class="flip col-xs-3"> 
+        <div class="card"> 
+          <div class="face front"> 
+            <h1 class="pinyin-font">i</h1>
+          </div> 
+          <div class="face back"> 
+            <%= image_tag 'pinyin-i-pic.png', :class => "img-responsive"%>
+          </div> 
+        </div>
+      </div> 
+      <div class="flip col-xs-3"> 
+        <div class="card"> 
+          <div class="face front"> 
+            <h1 class="pinyin-font">u</h1>
+          </div> 
+          <div class="face back"> 
+            <%= image_tag 'pinyin-u-pic.png', :class => "img-responsive"%>
+          </div> 
+        </div>
+      </div> 
+      <div class="flip col-xs-3"> 
+        <div class="card"> 
+          <div class="face front"> 
+            <h1 class="pinyin-font">v</h1>
+          </div> 
+          <div class="face back"> 
+            <%= image_tag 'pinyin-v-pic.png', :class => "img-responsive"%>
+          </div> 
+        </div>
+      </div> 
+      <div class="flip col-xs-3"> 
+        <div class="card"> 
+          <div class="face front"> 
+            <h1 class="pinyin-font">y</h1>
+          </div> 
+          <div class="face back"> 
+            <%= image_tag 'pinyin-y-pic.png', :class => "img-responsive"%>
+          </div> 
+        </div>
+      </div> 
+      <div class="flip col-xs-3"> 
+        <div class="card"> 
+          <div class="face front"> 
+            <h1 class="pinyin-font">w</h1>
+          </div> 
+          <div class="face back"> 
+            <%= image_tag 'pinyin-w-pic.png', :class => "img-responsive"%>
+          </div> 
+        </div>
+      </div> 
+  </div> 
+  <div class="row" id='lesson2row' style="display:none; margin-top:10px;">
+      <div class="col-xs-6">
+      <h1 class="lesson-header">Lesson 2 : 声调操 </h1>
+      </div>
+      <div class="col-xs-3">
+      <a class="btn btn-success" onclick="generate()" href="#">screenshot</a>
+      </div>
+      <div class="col-xs-3">
+      <a class="btn btn-success pull-right" id='nextlesson2' href="#">Next Lesson >></a>
+      </div>
+      <br class="clr" />
+
+      <div class="col-xs-12" id="lesson2" style="margin-top:10px;">
+      </div>
+  </div>
+  <div class="row" id='lesson3row' style="display:none; margin-top:10px;">
+      <div class="col-xs-6">
+      <h1 class="lesson-header">Lesson 3 : 练习(声调) </h1>
+      </div>
+      <div class="col-xs-3">
+      <a class="btn btn-success" onclick="generate()" href="#">screenshot</a>
+      </div>
+      <div class="col-xs-3">
+      <a class="btn btn-success pull-right" id='nextlesson3' href="#">Next Lesson >></a>
+      </div>
+      <br class="clr" />
+
+      <div class="col-xs-12" id="lesson3" style="margin-top:10px;">
+      </div>
+  </div>
+
+  <div class="row" id='lesson4row' style="display:none; margin-top:10px;">
+      <div class="col-xs-9">
+      <h1 class="lesson-header">Lesson 4 : 练习(填韵母) </h1>
+      </div>
+      <div class="col-xs-3">
+      <a class="btn btn-success pull-right" id='nextlesson4' href="#">Next Lesson >></a>
+      </div>
+      <br class="clr" />
+
+      <div class="col-xs-12" id="lesson4" style="margin-top:10px;">
+      </div>
+  </div>
+</div> 
+<div class="col-sm-3">
+<iframe id="chatframe" src="https://appear.in/flixter-ws" width="100%" frameborder="0"></iframe>
+</div>
+
+<script>
+
+  $(window).load(function() {
+    $(".pinyin-font").css('font-size', $(".card").height());
+  });
+
+  $(window).on('resize', function(){
+    $(".pinyin-font").css('font-size', $(".card").height());
+  });
+
+  $(function() {
+      var wrapheight = $("#wrap").height();
+
+      $('.flip').click(function(){
+          $(this).find('.card').addClass('flipped').mouseleave(function(){
+              $(this).removeClass('flipped');
+          });
+          return false;
+      });
+
+      $("#chatframe").height(wrapheight);
+      $(".pinyin-font").css('font-size', $(".card").height());
+
+      $("#nextlesson").on('click', function(){
+          $("#lesson1row").css('display','none');
+          $("#lesson2row").css('display','');
+          $('<iframe>', {
+              src: 'http://ec2-54-183-209-206.us-west-1.compute.amazonaws.com/wp-admin/admin-ajax.php?action=h5p_embed&id=9',
+              id:  'lesson2iframe',
+              width: '100%',
+              height: wrapheight,
+              frameborder: 0,
+            }).appendTo('#lesson2');
+      });
+
+      $("#nextlesson2").on('click', function(){
+          $("#lesson2row").css('display','none');
+          $("#lesson3row").css('display','');
+          $('<iframe>', {
+              src: 'http://ec2-54-183-209-206.us-west-1.compute.amazonaws.com/wp-admin/admin-ajax.php?action=h5p_embed&id=7',
+              id:  'lesson3iframe',
+              width: '100%',
+              height: wrapheight,
+              frameborder: 0,
+            }).appendTo('#lesson3');
+      });
+
+      $("#nextlesson3").on('click', function(){
+          $("#lesson3row").css('display','none');
+          $("#lesson4row").css('display','');
+          $('<iframe>', {
+              src: 'http://ec2-54-183-209-206.us-west-1.compute.amazonaws.com/wp-admin/admin-ajax.php?action=h5p_embed&id=10',
+              id:  'lesson4iframe',
+              width: '100%',
+              height: wrapheight,
+              frameborder: 0,
+            }).appendTo('#lesson4');
+      });
+  });
+</script> 
+

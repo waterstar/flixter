@@ -55,6 +55,7 @@ Flixter::Application.routes.draw do
   #   end
   root 'static_pages#index'
   get 'privacy', :to => 'static_pages#privacy'
+  get 'pinyin101', :to => 'static_pages#pinyin-1-1'
   devise_for :users
   resource :dashboard, :only => [:show]
   resources :courses, :only => [:index, :show] do
